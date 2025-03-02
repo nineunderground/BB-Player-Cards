@@ -1,13 +1,8 @@
-<div class="form-group">
-    
-</div>
-
 
 <div class="form-group form-check">
-    <input class="form-check-input" id="removeBorder" onchange="onAnyChange()" type="checkbox">
-    <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
+    <input hidden type="checkbox" class="form-check-input" id="removeBorder" onchange="onAnyChange()" checked>
+    <label hidden class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
 </div>
-
 <div class="mt-4">
     <button type="submit" class="btn btn-success" id="saveCanvasButton" onclick="saveCardAsImage()">
         Save card as image
@@ -21,37 +16,17 @@
 </div>
 
 <div class="mt-4">
-    <select id="sel">
-    </select>
-    <br>
-    <button type="submit" class="btn btn-success" id="loadPlayFromList" onclick="loadPlayFromList()">
-        Load Play from List
-    </button> 
-</div>
-
-<div class="mt-4">
     <label for="loadbutton">Load card file</label>
     <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file">
 </div>
-
 
 <div class="mt-4">
     <button type="submit" class="btn btn-success" id="clearCacheButton" onclick="onClearCache()">
         Reset all
     </button>
-    <br><hr>
 </div>
 
-
-
-<div class="mt-4">
-
+<div class="input-group mb-6 mt-2">
+    <br>
+    <br>
 </div>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
