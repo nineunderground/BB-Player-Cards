@@ -413,25 +413,15 @@ function setName(name) {
 
 function getModelImage() {
     var imageSelect = $("#imageSelect")[0];
-
     if (imageSelect.files.length > 0) {
         return URL.createObjectURL(imageSelect.files[0]);
     }
-
     return null;
 }
 
 function setModelImage(image) {
-    console.log("setModelImage:" + image);
+    //console.log("setModelImage:" + image);
     $("#fighterImageUrl")[0].value = image;
-
-    //  if (image != null) {
-    // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-    //    imageSelect.value = image;
-    // }
-    // else {
-    //    imageSelect.value = null;
-    // }
 }
 
 function getDefaultModelImageProperties() {
@@ -502,42 +492,16 @@ function readControls() {
     data.position_row_5_armour = document.getElementById("position_row_5_armour").value;
     data.position_row_5_ability = document.getElementById("position_row_5_ability").value;
 
-    // data.footer = document.getElementById("footer").value;
-    // data.cardText = document.getElementById("cardText").value;
-    // data.positionName = document.getElementById("positionName").value;
-    // data.ma = document.getElementById("ma").value;
-    // data.st = document.getElementById("st").value;
-    // data.ag = document.getElementById("ag").value;
-    // data.pa = document.getElementById("pa").value;
-    // data.av = document.getElementById("av").value;
-    // data.p_general = document.getElementById("p_general").checked;
-    // data.p_agility = document.getElementById("p_agility").checked;
-    // data.p_strength = document.getElementById("p_strength").checked;
-    // data.p_passing = document.getElementById("p_passing").checked;
-    // data.p_mutations = document.getElementById("p_mutations").checked;
-    // data.s_general = document.getElementById("s_general").checked;
-    // data.s_agility = document.getElementById("s_agility").checked;
-    // data.s_strength = document.getElementById("s_strength").checked;
-    // data.s_passing = document.getElementById("s_passing").checked;
-    // data.s_mutations = document.getElementById("s_mutations").checked;
-
-    // data.playerType = document.getElementById("playerType").value;
-    // data.playsFor = document.getElementById("playsFor").value;
-    // data.specialRules = document.getElementById("specialRules").value;
-
-
     return data;
 }
 
-// TODO: Set card details
 function drawCardDetails(fighterData){
-    // playerType = document.getElementById("playerType").value;
-    // if(playerType == "star"){
-    //     getContext().drawImage(document.getElementById('star_frame'), 0, 0, getCanvas().width, getCanvas().height);
-    // } else {
-    //     getContext().drawImage(document.getElementById('frame'), 0, 0, getCanvas().width, getCanvas().height);
-    // }
-    getContext().drawImage(document.getElementById('frame'), 0, 0, getCanvas().width, getCanvas().height);
+    
+    //console.log('drawCardDetails...')
+    var totalPositionSelected = document.getElementById("totalPos").value;
+    // Depending on combobox, select the image filename
+    var frameToPick = 'frame' + totalPositionSelected;
+    getContext().drawImage(document.getElementById(frameToPick), 0, 0, getCanvas().width, getCanvas().height);
 
     if(!document.getElementById("removeBorder").checked){
         getContext().drawImage(document.getElementById('border'), 0, 0, getCanvas().width, getCanvas().height);
@@ -581,8 +545,8 @@ function drawCardDetails(fighterData){
 }
 
 render = function (fighterData) {
-    console.log("Render:");
-    console.log(fighterData);
+    // console.log("Render:");
+    // console.log(fighterData);
     // First the textured background
     getContext().drawImage(document.getElementById('bg1'), 0, 0, getCanvas().width, getCanvas().height);
 
@@ -692,32 +656,6 @@ async function writeControls(fighterData) {
     $("#position_row_5_armour")[0].value = fighterData.position_row_5_armour;
     $("#position_row_5_ability")[0].value = fighterData.position_row_5_ability;    
 
-    // $("#footer")[0].value = fighterData.footer;
-    // $("#positionName")[0].value = fighterData.positionName;
-    // $("#ma")[0].value = fighterData.ma;
-    // $("#st")[0].value = fighterData.st;
-    // $("#ag")[0].value = fighterData.ag;
-    // $("#pa")[0].value = fighterData.pa;
-    // $("#av")[0].value = fighterData.av;
-    // $("#cardText")[0].value = fighterData.cardText;
-
-    // document.getElementById('p_agility').checked = fighterData.p_agility;
-    // document.getElementById('p_general').checked = fighterData.p_general;
-    // document.getElementById('p_mutations').checked = fighterData.p_mutations;
-    // document.getElementById('p_passing').checked = fighterData.p_passing;
-    // document.getElementById('p_strength').checked = fighterData.p_strength;
-
-    // document.getElementById('s_agility').checked = fighterData.s_agility;
-    // document.getElementById('s_general').checked = fighterData.s_general;
-    // document.getElementById('s_mutations').checked = fighterData.s_mutations;
-    // document.getElementById('s_passing').checked = fighterData.s_passing;
-    // document.getElementById('s_strength').checked = fighterData.s_strength;
-
-    // document.getElementById("playerType").value = fighterData.playerType;
-    // document.getElementById("playsFor").value = fighterData.playsFor;
-    // document.getElementById("specialRules").value = fighterData.specialRules;
-
-
     // render the updated info
     render(fighterData);
 }
@@ -725,40 +663,11 @@ async function writeControls(fighterData) {
 function defaultFighterData() {
     var fighterData = new Object;
     fighterData.name = "BloodBowl_Card";
-    //fighterData.cardName = "Card Name";
     fighterData.teamName = "Amazon Team";
 
     fighterData.imageProperties = getDefaultModelImageProperties();
-    // fighterData.playerType = "roster";
-    // fighterData.playsFor = "";
-    // fighterData.specialRules = "";
-    // fighterData.footer = "100,000";
-    // fighterData.positionName = "";
-    // fighterData.cardText = "Body Text";
-    // fighterData.imageUrl = null;
-    
-    // fighterData.ma = 4;
-    // fighterData.st = 4;
-    // fighterData.ag = 3;
-    // fighterData.pa = 3;
-    // fighterData.av = 9;
-    // fighterData.imageUrl = null;
-    // fighterData.imageProperties = getDefaultModelImageProperties();
-    // fighterData.p_agility = false;
-    // fighterData.p_general = false;
-    // fighterData.p_passing = false;
-    // fighterData.p_mutations = false;
-    // fighterData.p_strength = false;
-    // fighterData.s_agility = false;
-    // fighterData.s_general = false;
-    // fighterData.s_passing = false;
-    // fighterData.s_mutations = false;
-    // fighterData.s_strength = false;
-
-    // -----------------------------------------
-    // NEW VALID VALUES 
     fighterData.totalPlayers = "6";
-    fighterData.totalPos = 5;
+    fighterData.totalPos = 4;
     fighterData.totalReserves = 5;
 
     fighterData.position_row_1_name = "EAGLE WARRIOR";
@@ -823,13 +732,13 @@ function loadLatestFighterData() {
         latestCardName = "BloodBowl_Card";
     }
 
-    console.log("Loading '" + latestCardName + "'...");
+    // console.log("Loading '" + latestCardName + "'...");
 
     var data = loadFighterData(latestCardName);
 
     if (data) {
-        console.log("Loaded data:");
-        console.log(data);
+        //console.log("Loaded data:");
+        //console.log(data);
     }
     else {
         console.log("Failed to load data, loading defaults.");
@@ -924,7 +833,7 @@ function getLatestFighterDataName() {
 // ENTRYPOINT - load the card
 window.onload = function () {
     //window.localStorage.clear();
-    console.log("START...");
+    // console.log("START...");
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
     refreshSaveSlots();
@@ -990,7 +899,7 @@ function refreshSaveSlots() {
 async function onSaveClicked() {
     data = readControls();
     // temp null while I work out image saving
-    console.log(data);
+    //console.log(data);
     data.base64Image = await handleImageUrlFromDisk(data.imageUrl)
 
     // need to be explicit due to sub arrays
