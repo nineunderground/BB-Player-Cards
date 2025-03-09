@@ -24,6 +24,12 @@
 </head>
 
 <body>
+    <div class="font-hack2 sr-only" style="font-family:'built-titling';visibility:hidden;">Nothing to see here, move
+        along…</div>
+    <div class="font-hack3 sr-only" style="font-family:'brothers-regular';visibility:hidden;">Nothing to see here, move
+        along…</div>
+    <div class="font-hack3 sr-only" style="font-family:'franklin-gothic-book';visibility:hidden;">Nothing to see here, move
+        along…</div>
 
     <div class="container-fluid">
 
@@ -35,31 +41,31 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav nav-tabs">
 
+                <ul class="navbar-nav nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html" onclick="onClearCache()">Rosters</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html" onclick="onClearCache()">Events</a>
+                        <a class="nav-link active" href="events.html" onclick="onClearCache()">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="instructions.html" onclick="onClearCache()">Instructions</a>
+                        <a class="nav-link" href="instructions.html" onclick="onClearCache()">Instructions</a>
                     </li>
-
-                </ul>
 
                 </ul>
             </div>
 
         </nav>
 
-        {% include tabs/tabContentInstructions.html %}
+        {% include tabs/tabContentEvents.html %}
 
     </div>
 
     <script src="assets/vendors/jquery.js"></script>
+    <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
+    <script src="assets/js/events.js"></script>
 
 </body>
 
