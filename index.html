@@ -43,15 +43,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <ul class="navbar-nav nav nav-tabs">
-
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html" onclick="onClearCache()">Players</a>
-                        </li>
-                    -->
-
                     <li class="nav-item">
-                        <a class="nav-link active" href="roster.html" onclick="onClearCache()">Rosters</a>
+                        <a class="nav-link active" href="index.html" onclick="onClearCache()">Rosters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html" onclick="onClearCache()">Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="instructions.html" onclick="onClearCache()">Instructions</a>
@@ -62,14 +58,14 @@
 
         </nav>
 
-        {% include tabs/tabContentCard.html %}
+        {% include tabs/tabContentRoster.html %}
 
     </div>
 
     <script src="assets/vendors/jquery.js"></script>
     <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
-    <script src="assets/js/card.js"></script>
+    <script src="assets/js/roster.js"></script>
 
 </body>
 
